@@ -2,22 +2,28 @@
 import { useEffect, useState } from "react";
 
 export const Form = () => {
-    const [input, setInput] = useState("")
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
     useEffect(()=>{
-        if (input === "satya") {
-            console.log("Ini adalah satya")
-        } else {
-            console.log("Ini bukan satya")
-        }
-    }, [input])
+        if (username === "admin" && password === "admin") {
+            alert("Kamu adalah admin")
+        } 
+    }, [username, password])
 
     return(
         <div>
-            <div>Nama kamu: {input}</div>
-            <input type="text" onChange={(event)=>{
-                setInput(event.target.value)
-            }} />
+            <div>Nama kamu: {username}</div>
+            <input type="text" 
+                onChange={(event)=>{
+                    setUsername(event.target.value)
+                }} 
+            />
+            <input type="password" 
+                onChange={(event)=>{
+                    setPassword(event.target.value)
+                }} 
+            />
         </div>
     );
 }
